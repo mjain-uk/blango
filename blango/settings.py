@@ -69,7 +69,7 @@ class Dev(Configuration):
         "require_debug_false": {
             "()": "django.utils.log.RequireDebugFalse",
         },
-    }
+    },
     "formatters": {
         "verbose": {
             "format": "{levelname} {asctime} {module} {process:d} {thread:d} {message}",
@@ -134,6 +134,11 @@ class Dev(Configuration):
       ),
     }
 
+    PASSWORD_HASHERS = [
+        'django.contrib.auth.hashers.PBKDF2PasswordHasher',
+        'django.contrib.auth.hashers.PBKDF2SHA1PasswordHasher',
+        'django.contrib.auth.hashers.BCryptSHA256PasswordHasher',
+    ]
 
     # Password validation
     # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
